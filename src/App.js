@@ -1,5 +1,5 @@
 import './App.css';
-import { Simple } from './Simple';
+import { Simple } from './Samples/Simple';
 function App() {
   return (
     <div className="App">

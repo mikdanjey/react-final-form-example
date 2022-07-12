@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
-import Styles from './Styles';
+import Styles from '../Styles';
 import { Form, Field, FormSpy } from 'react-final-form';
-import { RenderCount } from './RenderCount';
+import { RenderCount } from '../Components/RenderCount';
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -16,7 +16,7 @@ export const Simple = () => (
         <h1>React Final Form - Simple Example</h1>
         <Form
             onSubmit={onSubmit}
-            initialValues={{ stooge: 'larry', employed: false }}
+            initialValues={{ firstName: "Mani", stooge: 'larry', employed: false }}
             subscription={{ submitting: true, pristine: true }}
             render={({ handleSubmit, form, submitting, pristine, values }) => (
                 <form onSubmit={handleSubmit}>
