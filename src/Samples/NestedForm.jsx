@@ -63,7 +63,7 @@ export const NestedForm = () => (
             render={({
                 dirty,
                 handleSubmit,
-                mutators: { push, pop, unshift }, // injected from final-form-arrays above
+                // mutators: { push, pop, unshift }, // injected from final-form-arrays above
                 pristine,
                 reset,
                 submitting,

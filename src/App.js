@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 
 import { Simple } from './Samples/Simple';
+import { NestedForm } from './Samples/NestedForm';
+
 function App() {
   return (
     <Routes>
@@ -27,6 +29,10 @@ function App() {
         index
         path={"/"}
         element={<Simple title={"Simple"} />}
+      />
+      <Route
+        path={"/nested"}
+        element={<NestedForm title={"NestedForm"} />}
       />
     </Routes>
   );
