@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
 import Styles from './Styles';
-import { Form, Field } from 'react-final-form';
+import { Form, Field, FormSpy } from 'react-final-form';
 import { RenderCount } from './RenderCount';
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -17,6 +17,7 @@ export const Simple = () => (
         <Form
             onSubmit={onSubmit}
             initialValues={{ stooge: 'larry', employed: false }}
+            subscription={{ submitting: true, pristine: true }}
             render={({ handleSubmit, form, submitting, pristine, values }) => (
                 <form onSubmit={handleSubmit}>
                     <div>
@@ -106,6 +107,7 @@ export const Simple = () => (
                                 Guacamole 🥑
                             </label>
                         </div>
+                        <RenderCount />
                     </div>
                     <div>
                         <label>Best Stooge</label>
@@ -138,10 +140,12 @@ export const Simple = () => (
                                 Curly
                             </label>
                         </div>
+                        <RenderCount />
                     </div>
                     <div>
                         <label>Notes</label>
                         <Field name="notes" component="textarea" placeholder="Notes" />
+                        <RenderCount />
                     </div>
                     <div className="buttons">
                         <button type="submit" disabled={submitting || pristine}>
@@ -155,7 +159,17 @@ export const Simple = () => (
                             Reset
                         </button>
                     </div>
-                    <pre>{JSON.stringify(values, 0, 2)}</pre>
+                    <FormSpy subscription={{ values: true }}>
+                        {({ values }) => (
+                            <>
+                                <pre>
+                                    {JSON.stringify(values, 0, 2)}
+                                </pre>
+                                <RenderCount />
+                            </>
+                        )}
+                    </FormSpy>
+
                 </form>
             )}
         />
